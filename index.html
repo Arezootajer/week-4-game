@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>StarWar Game</title>
+     <!-- Added link to the jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <!--jqueryUI-->
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="crossorigin="anonymous"></script>
+
+    <!-- Google Fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Josefin+Sans|Lobster' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Acme|Cherry+Swash' rel='stylesheet' type='text/css'>
+
+
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!--<link rel="stylesheet" type="text/css" href="assets/css/reset.css">-->
+    <link rel="stylesheet" href="./assets/css/style.css" type="text/css">
+
+  </head>
+  <body>    
+      <div id="jumbotron">
+        <h1 class="text-right" >Star Wars RPG!</h1>
+       
+    </div>
+    <div class = "text-left" id="container">
+       
+       <div id="yourChar">
+          <button value="one" class="btnchar">
+            <h5>Obi-Wan Kenobi </h5> 
+            <img  class="soldier" src="assets/images/one.jpg" >
+            <h5> 120</h5>
+          </button>
+
+          <button value="two" class="btnchar">
+          <h5> Ahsoka Tano</h5>
+            <img  class="soldier" src="assets/images/two.jpg" >
+            <h5>120</h5>
+          </button>
+          <button value= "three" class="btnchar">
+         <h5> Darth Maul </h5>
+            <img class="soldier" src="assets/images/three.jpg"  >
+            <h5>120</h5>
+          </button>
+          <button value ="four" class="btnchar">
+          <h5> Yoda</h5>
+            <img  class="soldier" src="assets/images/four.jpg">
+            <h5>120</h5>
+          </button> 
+          
+          <h4> Your character!</h4>  
+       </div>
+       
+       <div id="enemy"> 
+       <h4> Enemies Available to Attack!</h4>  
+       </div>
+       
+       <div id="fight">
+         <h4>Fight Section!</h4>
+       </div>
+       
+       <button type="button" class="btn btn-error" id="attack">Attack!</button>
+       <div id="defender">
+        <h4>Defender!</h4>
+       </div>
+       
+       
+     
+        
+    </div>
+
+ 
+   
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+      $("#yourChar").delegate('.btnchar', 'click', function(){
+        $(".btnchar").not($(this))
+                      .detach()
+                      .removeClass("btnchar")
+                      .addClass("enemy")
+                      .appendTo("#enemy");
+
+      });
+
+      $("#enemy").delegate('.enemy','click',function() {
+        $(this).detach();
+
+        var text = $(this).html();
+        $('#fight').append('<button class="enemy">' + text + '</button>');
+      });
+
+    });
+
+     </script>
+  </body>
+</html>
